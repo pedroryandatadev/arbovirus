@@ -8,7 +8,7 @@ lang = st.session_state.lang
 model = joblib.load('models/xgb_best_model.pkl')
 label_encoder = joblib.load('models/label_encoder.pkl')
 
-# Conteúdo da página inicial
+# Content of the home page
 st.write(translations[lang]['form_desc'])
 
 with st.form('diagnosis_form'):
@@ -38,9 +38,9 @@ with st.form('diagnosis_form'):
 
     submitted = st.form_submit_button(translations[lang]['form_submit'])
 
-# Fazer predição se enviar o formulário
+# Make prediction if the form is submitted
 if submitted:
-    # Converter respostas 'Sim'/'Não' em 1/0
+    # Convert 'Yes'/'No' answers to 1/0
     sintomas = {
         'febre': 1 if febre == translations[lang]['options_yes_no'][1] else 0,
         'mialgia': 1 if mialgia == translations[lang]['options_yes_no'][1] else 0,
@@ -53,24 +53,24 @@ if submitted:
         'dor_retro': 1 if dor_retro == translations[lang]['options_yes_no'][1] else 0
     }
 
-    # Converter sexo para número (igual ao usado no treino)
+    # Convert sex to number (same as used in training)
     tp_sexo_valor = 1 if tp_sexo == 'M' else 0
 
-    # Montar dataframe de entrada com tipos numéricos
+    # Build input dataframe with types
     X_input = pd.DataFrame([{
         'nu_idade': int(nu_idade),
         'tp_sexo': tp_sexo_valor,
         **sintomas
     }])
 
-    # Garantir que tudo é numérico
+    # Ensure everything is numeric
     X_input = X_input.astype(float)
 
-    # Fazer previsão
+    # Make prediction
     y_pred = model.predict(X_input)
     class_name = label_encoder.inverse_transform(y_pred)[0]
     
-    # Traduzir conforme o idioma atual
+    # Translate according to the current language
     translated_class = translations[lang]['disease_names'].get(class_name, class_name)
 
     st.markdown('---')

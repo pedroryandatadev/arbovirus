@@ -28,6 +28,14 @@ The purpose of this project is to demonstrate the potential of artificial intell
   <img src="img/previews/crisp-dm.jpg" alt="Performance">
 </p>
 
+# Pipeline Machine Learning
+
+Arbovirus was built using [IBM's Machine Learning Guide](https://www.ibm.com/think/topics/machine-learning-pipeline?), so it would be a great example to show how the architecture works in real-world projects.
+
+<p align="center">
+  <img src="img/previews/pipeline.png" alt="Pipeline">
+</p>
+
 # Model Performance
 
 - Accuracy: Measures the overall percentage of correct predictions.
@@ -75,6 +83,11 @@ grid_search = GridSearchCV(
     n_jobs=-1
 )
 ```
+# Data Source
+
+Arbovirus using the [Government of the State of Pernambuco, Brazil](http://dados.recife.pe.gov.br/dataset/casos-de-dengue-zika-e-chikungunya) to obtain training data.<br>
+The Government of the State of Pernambuco, Brazil provides a highly detailed data source with real data on patients.
+
 
 # Requirements
 
