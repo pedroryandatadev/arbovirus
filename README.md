@@ -24,6 +24,8 @@ The purpose of this project is to demonstrate the potential of artificial intell
 
 # Methodology
 
+Arbovirus was developed following [IBM SPSS Modeler CRISP-DM Guide](https://www.ibm.com/docs/it/SS3RA7_18.3.0/pdf/ModelerCRISPDM.pdf), a widely used methodology for structuring Data Science and Machine Learning projects. By adopting CRIP-DM, the project became an excellent practical example of how each phase of the process contributes to building a robust and scalable solution.
+
 <p align="center">
   <img src="img/previews/crisp-dm.jpg" alt="Performance">
 </p>
